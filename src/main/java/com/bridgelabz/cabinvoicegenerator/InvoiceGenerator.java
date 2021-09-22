@@ -14,8 +14,8 @@ public class InvoiceGenerator
 		{
 			return MINIMUM_FARE;
 		}
-		
-			return totalFare;
+
+		return totalFare;
 	}
 
 
@@ -27,8 +27,8 @@ public class InvoiceGenerator
 		{
 			totalFare+=this.calculateFare(ride.distance,ride.time);
 		}
-		
-		return null;
+
+		return new InvoiceSummary(rides.length, totalFare);
 	}
 
 }
