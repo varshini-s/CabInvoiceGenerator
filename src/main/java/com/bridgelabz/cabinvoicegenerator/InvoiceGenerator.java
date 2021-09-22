@@ -32,10 +32,11 @@ public class InvoiceGenerator
 	}
 
 
-	public InvoiceSummary calculateFare(String userID) 
+	public InvoiceSummary calculateFare(String userID,RideRepository rideRepository) 
 	{
-		// TODO Auto-generated method stub
-		return null;
+		Ride[] rides=rideRepository.getRideList(userID);
+
+		return calculateFare(rides);
 	}
 
 }
