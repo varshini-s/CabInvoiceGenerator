@@ -18,6 +18,11 @@ public class Ride
 	}
 	
 	
-
+	public Ride(double distance,double time,RideType rideType)
+	{
+		this.distance=distance;
+		this.time=time;
+		this.rideType=rideType;
+	}
 
 }
