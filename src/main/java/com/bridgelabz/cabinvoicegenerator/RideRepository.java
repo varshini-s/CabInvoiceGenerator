@@ -12,6 +12,13 @@ public class RideRepository
 	
 	}
 
-
+	public void addRideList(String userID, Ride[] rides) 
+	{
+		if(this.userRidesList.containsKey(userID)==false)
+		{
+			this.userRidesList.put(userID, rides);
+		}
+	}
+	
 
 }
