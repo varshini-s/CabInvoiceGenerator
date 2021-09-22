@@ -2,13 +2,14 @@ package com.bridgelabz.cabinvoicegenerator;
 
 import com.bridgelabz.cabinvoicegenerator.CabAgency.CostType;
 
-public class InvoiceGenerator 
+public class InvoiceGeneratorImpl implements InvoiceGeneratorIF
 {
 	private static  double costPerKilometer=10 ;
 	private static  double costPerMinute =1;
 	private static  double minimumFare = 5;
 	CabAgency cabAgency;
 
+	@Override
 	public double calculateFare(double distance, double time) 
 	{
 		double totalFare= distance*costPerKilometer+time*costPerMinute;
@@ -20,7 +21,7 @@ public class InvoiceGenerator
 		return totalFare;
 	}
 
-
+	@Override
 	public InvoiceSummary calculateFare(Ride[] rides) 
 	{
 
@@ -33,14 +34,14 @@ public class InvoiceGenerator
 				costPerMinute=cabAgency.getCost(ride.getRideType(),CostType.COST_PER_MINUTE);
 				minimumFare=cabAgency.getCost(ride.getRideType(),CostType.MINIMUM_FARE);
 			}
-			
+
 			totalFare+=this.calculateFare(ride.getDistance(),ride.getTime());
 		}
 
 		return new InvoiceSummary(rides.length, totalFare);
 	}
 
-
+	@Override
 	public InvoiceSummary calculateFare(String userID,RideRepository rideRepository) 
 	{
 		Ride[] rides=rideRepository.getRideList(userID);
@@ -48,12 +49,12 @@ public class InvoiceGenerator
 		return calculateFare(rides);
 	}
 
-
+	@Override
 	public InvoiceSummary calculateFare(String userID, RideRepository rideRepository, CabAgency cabAgency) 
 	{
 		this.cabAgency=cabAgency;
 		return calculateFare(userID, rideRepository);
 	}
-	
+
 
 }
