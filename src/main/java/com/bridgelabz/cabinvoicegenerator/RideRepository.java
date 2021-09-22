@@ -5,12 +5,27 @@ import java.util.Map;
 
 public class RideRepository 
 {
-	Map<String, Ride[]> userRidesList;
+	private Map<String, Ride[]> userRidesList;
 	public RideRepository() 
 	{
 		userRidesList=new HashMap<String, Ride[]>();
 
 	}
+
+
+	public Map<String, Ride[]> getUserRidesList() 
+	{
+		return userRidesList;
+	}
+
+
+
+	public void setUserRidesList(Map<String, Ride[]> userRidesList)
+	{
+		this.userRidesList = userRidesList;
+	}
+
+
 
 	public void addRideList(String userID, Ride[] rides) 
 	{
@@ -29,5 +44,6 @@ public class RideRepository
 
 		return null;
 	}
+
 
 }
