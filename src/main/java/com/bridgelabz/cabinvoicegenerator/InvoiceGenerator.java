@@ -7,7 +7,7 @@ public class InvoiceGenerator
 	private static  double costPerKilometer=10 ;
 	private static  double costPerMinute =1;
 	private static  double minimumFare = 5;
-	
+	CabAgency cabAgency;
 
 	public double calculateFare(double distance, double time) 
 	{
@@ -27,7 +27,12 @@ public class InvoiceGenerator
 		double totalFare = 0;
 		for(Ride ride:rides)
 		{
-			
+			if(cabAgency!=null)
+			{
+				costPerKilometer=cabAgency.getCost(ride.rideType, CostType.COST_PER_KILOMETER);
+				costPerMinute=cabAgency.getCost(ride.rideType,CostType.COST_PER_MINUTE);
+				minimumFare=cabAgency.getCost(ride.rideType,CostType.MINIMUM_FARE);
+			}
 			
 			totalFare+=this.calculateFare(ride.distance,ride.time);
 		}
