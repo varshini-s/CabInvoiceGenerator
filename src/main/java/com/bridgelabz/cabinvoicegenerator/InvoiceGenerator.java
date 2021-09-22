@@ -31,4 +31,11 @@ public class InvoiceGenerator
 		return new InvoiceSummary(rides.length, totalFare);
 	}
 
+
+	public InvoiceSummary calculateFare(String userID) 
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
