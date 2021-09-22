@@ -1,18 +1,20 @@
 package com.bridgelabz.cabinvoicegenerator;
 
+import com.bridgelabz.cabinvoicegenerator.CabAgency.CostType;
+
 public class InvoiceGenerator 
 {
-	private static final double MINIMUM_COST_PER_KILOMETER = 10;
-	private static final int COST_PER_TIME = 1;
-	private static final double MINIMUM_FARE = 5;
+	private static  double costPerKilometer=10 ;
+	private static  double costPerMinute =1;
+	private static  double minimumFare = 5;
+	
 
-
-	public double calculateFare(double distance, int time) 
+	public double calculateFare(double distance, double time) 
 	{
-		double totalFare= distance*MINIMUM_COST_PER_KILOMETER+time*COST_PER_TIME;
-		if(totalFare<MINIMUM_FARE)
+		double totalFare= distance*costPerKilometer+time*costPerMinute;
+		if(totalFare<minimumFare)
 		{
-			return MINIMUM_FARE;
+			return minimumFare;
 		}
 
 		return totalFare;
@@ -25,6 +27,8 @@ public class InvoiceGenerator
 		double totalFare = 0;
 		for(Ride ride:rides)
 		{
+			
+			
 			totalFare+=this.calculateFare(ride.distance,ride.time);
 		}
 
@@ -38,5 +42,9 @@ public class InvoiceGenerator
 
 		return calculateFare(rides);
 	}
+
+
+	
+	
 
 }
