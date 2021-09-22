@@ -37,6 +37,11 @@ public class CabAgency
 		this.rideDetail.put(Ride.RideType.PREMIUM_RIDE, premiumRideCostDetails);
 
 	}
-
+	
+	public Double getCost(Ride.RideType rideType,CostType costType)
+	{
+		
+		return rideDetail.get(rideType).get(costType);
+	}
 	
 }
