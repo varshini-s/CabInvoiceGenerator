@@ -44,7 +44,11 @@ public class InvoiceGenerator
 	}
 
 
-	
+	public InvoiceSummary calculateFare(String userID, RideRepository rideRepository, CabAgency cabAgency) 
+	{
+		this.cabAgency=cabAgency;
+		return calculateFare(userID, rideRepository);
+	}
 	
 
 }
