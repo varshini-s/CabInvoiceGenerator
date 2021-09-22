@@ -9,7 +9,7 @@ public class RideRepository
 	public RideRepository() 
 	{
 		userRidesList=new HashMap<String, Ride[]>();
-	
+
 	}
 
 	public void addRideList(String userID, Ride[] rides) 
@@ -19,6 +19,15 @@ public class RideRepository
 			this.userRidesList.put(userID, rides);
 		}
 	}
-	
+
+	public Ride[] getRideList(String userID)
+	{
+		if(this.userRidesList.containsKey(userID))
+		{
+			return userRidesList.get(userID);
+		}
+
+		return null;
+	}
 
 }
