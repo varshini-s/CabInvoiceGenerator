@@ -10,11 +10,11 @@ import com.bridgelabz.cabinvoicegenerator.Ride.RideType;
 
 public class InvoiceServiceTest 
 {
-	InvoiceGenerator invoiceGenerator;
+	InvoiceGeneratorIF invoiceGenerator;
 	@Before
 	public void initialSetup()
 	{
-		invoiceGenerator= new InvoiceGenerator();
+		invoiceGenerator= new InvoiceGeneratorImpl();
 		
 	}
 
