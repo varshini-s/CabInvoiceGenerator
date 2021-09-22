@@ -5,6 +5,13 @@ import java.util.Map;
 
 public class RideRepository 
 {
-	Map<String, Ride[]> userRidesList;}
+	Map<String, Ride[]> userRidesList;
+	public RideRepository() 
+	{
+		userRidesList=new HashMap<String, Ride[]>();
+	
+	}
+
+
 
 }
