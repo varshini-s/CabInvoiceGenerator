@@ -56,7 +56,7 @@ public class InvoiceServiceTest
     	String userID="user1";
     	rideRepository.addRideList(userID,rides);
     	
-    	InvoiceSummary summary =invoiceGenerator.calculateFare(userID);
+    	InvoiceSummary summary =invoiceGenerator.calculateFare(userID,rideRepository);
     	InvoiceSummary expectedInvoiceSummary=new InvoiceSummary(2,30);
     	Assert.assertEquals(summary,expectedInvoiceSummary);
     	
