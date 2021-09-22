@@ -5,9 +5,6 @@ import java.util.Map;import org.checkerframework.checker.units.qual.C;
 
 public class CabAgency 
 {
-
-	
-	
 	enum CostType
 	{
 		COST_PER_KILOMETER,COST_PER_MINUTE,MINIMUM_FARE
@@ -15,8 +12,9 @@ public class CabAgency
 
 	CostType costType;
 	
-	Map<Ride.RideType,Map<CostType,Double>> rideDetail= new HashMap<Ride.RideType, Map<CostType,Double>>();
+	private Map<Ride.RideType,Map<CostType,Double>> rideDetail= new HashMap<Ride.RideType, Map<CostType,Double>>();
 	
+
 	public CabAgency(double normalRideCostPerKilometer,double normalRideCostPerMinute,double normalRideMinimumFare,
 					 double preimumRideCostPerKilometer,double premiumRideCostPerMinute,double premiumRideMinimumFare) 
 	{
@@ -36,6 +34,16 @@ public class CabAgency
 		this.rideDetail.put(Ride.RideType.NORMAL_RIDE, normalRideCostDetails);
 		this.rideDetail.put(Ride.RideType.PREMIUM_RIDE, premiumRideCostDetails);
 
+	}
+	
+	public Map<Ride.RideType, Map<CostType, Double>> getRideDetail() 
+	{
+		return rideDetail;
+	}
+
+	public void setRideDetail(Map<Ride.RideType, Map<CostType, Double>> rideDetail) 
+	{
+		this.rideDetail = rideDetail;
 	}
 	
 	public Double getCost(Ride.RideType rideType,CostType costType)
