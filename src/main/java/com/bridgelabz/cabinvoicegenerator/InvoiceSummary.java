@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class InvoiceSummary 
 {
-	public int numberOfRides;
-	public double totalFare;
-	public double averageFair;
+	private int numberOfRides;
+	private double totalFare;
+	private double averageFair;
 
 	public InvoiceSummary(int numberOfRides,double totalFare) 
 	{
@@ -15,9 +15,42 @@ public class InvoiceSummary
 		this.totalFare=totalFare;
 		this.averageFair=this.totalFare/this.numberOfRides;
 	}
+	
+	public int getNumberOfRides() 
+	{
+		return numberOfRides;
+	
+	}
+
+	public void setNumberOfRides(int numberOfRides) 
+	{
+		this.numberOfRides = numberOfRides;
+	}
+
+	public double getTotalFare() 
+	{
+		return totalFare;
+	}
+
+	public void setTotalFare(double totalFare)
+	{
+		this.totalFare = totalFare;
+	}
+
+	public double getAverageFair()
+	{
+		return averageFair;
+	}
+
+	public void setAverageFair(double averageFair)
+	{
+		this.averageFair = averageFair;
+	}
+
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj) 
+	{
 		if (this == obj)
 			return true;
 		if (obj == null)
