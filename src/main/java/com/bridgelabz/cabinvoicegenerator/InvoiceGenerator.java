@@ -29,12 +29,12 @@ public class InvoiceGenerator
 		{
 			if(cabAgency!=null)
 			{
-				costPerKilometer=cabAgency.getCost(ride.rideType, CostType.COST_PER_KILOMETER);
-				costPerMinute=cabAgency.getCost(ride.rideType,CostType.COST_PER_MINUTE);
-				minimumFare=cabAgency.getCost(ride.rideType,CostType.MINIMUM_FARE);
+				costPerKilometer=cabAgency.getCost(ride.getRideType(), CostType.COST_PER_KILOMETER);
+				costPerMinute=cabAgency.getCost(ride.getRideType(),CostType.COST_PER_MINUTE);
+				minimumFare=cabAgency.getCost(ride.getRideType(),CostType.MINIMUM_FARE);
 			}
 			
-			totalFare+=this.calculateFare(ride.distance,ride.time);
+			totalFare+=this.calculateFare(ride.getDistance(),ride.getTime());
 		}
 
 		return new InvoiceSummary(rides.length, totalFare);
