@@ -1,11 +1,10 @@
 package com.bridgelabz.cabinvoicegenerator;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class RideRepository 
 {
-
-	public void addRideList(String userID, Ride[] rides) 
-	{
-		
-	}
+	Map<String, Ride[]> userRidesList;}
 
 }
